@@ -5,11 +5,8 @@ import org.junit.Assert;
 import org.junit.AfterClass;
 import org.junit.Test;
 import org.junit.BeforeClass;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPageTest {
     private static WebDriver driver;
@@ -23,13 +20,16 @@ public class MainPageTest {
 
     @Test
     public void GoogleLogin() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
         GoogleAction.GoTo(driver);
         GoogleAction.ClickLoginButton(driver);
         GoogleAction.InputEmail(driver, googleLogin);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Passwd")));
+        GoogleAction.WaitForPasswordField(driver);
         GoogleAction.InputPassword(driver, googlePassword);
-        Assert.assertTrue(driver.findElement(By.linkText(googleLogin)).getText().equals(googleLogin));
+        Assert.assertTrue(GoogleAction.AssertSuccess(driver, googleLogin));
+        if (GoogleAction.AssertSuccess(driver, googleLogin)) {
+            System.out.println("Logged in google account successfully.");
+        }
+        else System.out.println("Test GoogleLogin failed");
     }
 
     @AfterClass
