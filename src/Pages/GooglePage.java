@@ -33,8 +33,8 @@ public class GooglePage {
         return element;
     }
 
-    public static WebElement LoggedMenu(WebDriver driver){
-        element = driver.findElement(By.linkText("yaroslav.rybiak@gmail.com"));
+    public static WebElement LoggedMenu(WebDriver driver, String email){
+        element = driver.findElement(By.linkText(email));
         return element;
     }
 
@@ -43,9 +43,23 @@ public class GooglePage {
         return element;
     }
 
-    public static WebElement ErrorMessage(WebDriver driver){
+    public static WebElement ErrorMessagePassword(WebDriver driver){
         element = driver.findElement(By.id("errormsg_0_Passwd"));
         return element;
     }
 
+    public static WebElement ErrorMessageEmail(WebDriver driver){
+        element = driver.findElement(By.id("errormsg_0_Email"));
+        return element;
+    }
+
+    public static WebElement ExistingAccount(WebDriver driver){
+        element = driver.findElement(By.id("account-chooser-link"));
+        return element;
+    }
+
+    public static WebElement AddAccount(WebDriver driver){
+        element = driver.findElement(By.id("account-chooser-add-account"));
+        return element;
+    }
 }
