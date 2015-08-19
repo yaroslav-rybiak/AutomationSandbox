@@ -33,11 +33,24 @@ public class GoogleAction {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Passwd")));
     }
 
-    public static boolean AssertSuccess(WebDriver driver, String googleLogin) {
+    public static boolean AssertSuccessLogin(WebDriver driver, String googleLogin) {
         if (driver.findElement(By.linkText(googleLogin)).getText().equals(googleLogin)) {
             return true;
         }
         else return false;
+    }
+
+    public static void SignOut(WebDriver driver) {
+        GooglePage.LoggedMenu(driver).click();
+        GooglePage.SignOut(driver).click();
+    }
+
+    public static boolean AssertSuccessLogout(WebDriver driver) {
+        return GooglePage.LoginButton(driver).isDisplayed();
+    }
+
+    public static boolean AssertFailure(WebDriver driver) {
+        return GooglePage.ErrorMessage(driver).isDisplayed();
     }
 
 }

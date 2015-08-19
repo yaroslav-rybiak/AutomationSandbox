@@ -33,4 +33,19 @@ public class GooglePage {
         return element;
     }
 
+    public static WebElement LoggedMenu(WebDriver driver){
+        element = driver.findElement(By.linkText("yaroslav.rybiak@gmail.com"));
+        return element;
+    }
+
+    public static WebElement SignOut(WebDriver driver){
+        element = driver.findElement(By.id("gb_71"));
+        return element;
+    }
+
+    public static WebElement ErrorMessage(WebDriver driver){
+        element = driver.findElement(By.id("errormsg_0_Passwd"));
+        return element;
+    }
+
 }

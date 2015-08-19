@@ -19,17 +19,27 @@ public class MainPageTest {
     }
 
     @Test
-    public void GoogleLogin() {
+    public void GoogleLoginSuccess() {
         GoogleAction.GoTo(driver);
         GoogleAction.ClickLoginButton(driver);
         GoogleAction.InputEmail(driver, googleLogin);
         GoogleAction.WaitForPasswordField(driver);
         GoogleAction.InputPassword(driver, googlePassword);
-        Assert.assertTrue(GoogleAction.AssertSuccess(driver, googleLogin));
-        if (GoogleAction.AssertSuccess(driver, googleLogin)) {
-            System.out.println("Logged in google account successfully.");
-        }
-        else System.out.println("Test GoogleLogin failed");
+        Assert.assertTrue(GoogleAction.AssertSuccessLogin(driver, googleLogin));
+        GoogleAction.SignOut(driver);
+        Assert.assertTrue(GoogleAction.AssertSuccessLogout(driver));
+
+    }
+
+    @Test
+    public void GoogleLoginFailure() {
+        GoogleAction.GoTo(driver);
+        GoogleAction.ClickLoginButton(driver);
+        GoogleAction.InputEmail(driver, googleLogin);
+        GoogleAction.WaitForPasswordField(driver);
+        GoogleAction.InputPassword(driver, googlePassword+"fail");
+        Assert.assertTrue(GoogleAction.AssertFailure(driver));
+
     }
 
     @AfterClass
