@@ -3,10 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage {
-
-    WebDriver driver;
-    private String URL = "https://homemoney.ua/";
+public class HomePage extends Page {
 
     By loginSwitch = By.cssSelector("div.landing-main-log-switch");
     By emailField = By.id("ctl00_Main_login");
@@ -14,11 +11,8 @@ public class HomePage {
     By loginButton = By.id("ctl00_Main_LoginButton");
 
     public HomePage(WebDriver driver){
-        this.driver = driver;
-    }
-
-    public void open() {
-        driver.get(URL);
+        super(driver);
+        URL = "https://homemoney.ua/";
     }
 
     public void switchToLogin() {

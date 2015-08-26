@@ -12,7 +12,7 @@ import Data.Credentials;
 
 public class LoginTest {
 
-    static WebDriver driver = new FirefoxDriver();;
+    protected static WebDriver driver = new FirefoxDriver();
     HomePage homePage = new HomePage(driver);
     AppPage appPage = new AppPage(driver);
     private String email = Credentials.getEmail();
