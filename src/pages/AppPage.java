@@ -7,14 +7,9 @@ public class AppPage extends Page {
 
     By logoutLink = By.id("ctl00_ctl00_Top_LV2_LoginStatus2");
 
-
     public AppPage(WebDriver driver){
         super(driver);
         URL = "https://homemoney.ua/app/";
-    }
-
-    public void open() {
-        driver.get(URL);
     }
 
     public void clickLogoutButton() {
