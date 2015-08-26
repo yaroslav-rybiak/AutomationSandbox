@@ -8,32 +8,34 @@
     <version>1.0</version>
 
     <properties>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.8.1</junit.version>
         <selenium.version>2.47.1</selenium.version>
     </properties>
 
     <dependencies>
 
-        <!-- JUnit -->         
+        <!-- JUnit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
         </dependency>
 
-        <!-- Selenium -->
+        <!-- Selenium firefox driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-firefox-driver</artifactId>
             <version>${selenium.version}</version>
         </dependency>
 
+        <!-- Selenium support -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-support</artifactId>
             <version>${selenium.version}</version>
         </dependency>
 
+        <!-- Selenium java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
