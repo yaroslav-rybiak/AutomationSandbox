@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AppPage extends Page {
 
-    By logoutLink = By.id("ctl00_ctl00_Top_LV2_LoginStatus2");
+    By logoutLink = By.xpath("//a[contains(text(),'Sign out')]");
 
     public AppPage(WebDriver driver){
         super(driver);

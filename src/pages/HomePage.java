@@ -9,6 +9,7 @@ public class HomePage extends Page {
     By emailField = By.id("ctl00_Main_login");
     By passwordField = By.id("ctl00_Main_password");
     By loginButton = By.id("ctl00_Main_LoginButton");
+    By errorMessage = By.id("tooltip-loginRegister");
 
     public HomePage(WebDriver driver){
         super(driver);
@@ -16,7 +17,12 @@ public class HomePage extends Page {
     }
 
     public void switchToLogin() {
-        driver.findElement(loginSwitch).click();
+        try {
+            driver.findElement(emailField).isDisplayed();
+        }
+        catch (Exception e){
+            driver.findElement(loginSwitch).click();
+        }
     }
 
     public void inputEmail(String email){
@@ -29,5 +35,9 @@ public class HomePage extends Page {
 
     public void clickLoginButton(){
         driver.findElement(loginButton).click();
+    }
+
+    public boolean errorMessageIsPresent() {
+        return driver.findElement(errorMessage).isDisplayed();
     }
 }
