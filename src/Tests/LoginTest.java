@@ -8,15 +8,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import Pages.HomePage;
 import Pages.AppPage;
-import Data.Credentials;
+import Data.Helper;
 
 public class LoginTest {
 
     protected static WebDriver driver = new FirefoxDriver();
     HomePage homePage = new HomePage(driver);
     AppPage appPage = new AppPage(driver);
-    private String email = Credentials.getEmail();
-    private String password = Credentials.getPassword();
+    private String email = Helper.getEmail();
+    private String password = Helper.getPassword();
 
     @BeforeClass
     public static void setup() {

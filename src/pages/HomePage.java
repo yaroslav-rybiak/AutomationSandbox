@@ -37,6 +37,14 @@ public class HomePage extends Page {
         driver.findElement(loginButton).click();
     }
 
+    public void login(String email, String password){
+        open();
+        switchToLogin();
+        inputEmail(email);
+        inputPassword(password);
+        clickLoginButton();
+    }
+
     public boolean errorMessageIsPresent() {
         return driver.findElement(errorMessage).isDisplayed();
     }
