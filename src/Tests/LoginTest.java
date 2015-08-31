@@ -32,6 +32,7 @@ public class LoginTest {
         homePage.clickLoginButton();
         Assert.assertTrue(appPage.isOpened());
         appPage.clickLogoutButton();
+        Assert.assertTrue(homePage.isOpened());
     }
 
     @Test

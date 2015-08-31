@@ -1,5 +1,6 @@
 package Pages;
 
+import Data.Helper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,7 +14,7 @@ public class HomePage extends Page {
 
     public HomePage(WebDriver driver){
         super(driver);
-        URL = "https://homemoney.ua/";
+        URL = Helper.getHomeURL();
     }
 
     public void switchToLogin() {

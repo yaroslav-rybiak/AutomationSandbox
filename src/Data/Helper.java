@@ -4,8 +4,13 @@ import java.util.Random;
 
 public class Helper {
 
+    protected static String HomeURL = "https://homemoney.ua/";
     protected static String email = "br59241@gmail.com";
     protected static String password = "oDo94oZmbB";
+
+    public static String getHomeURL() {
+        return HomeURL;
+    }
 
     public static String getEmail() {
         return email;

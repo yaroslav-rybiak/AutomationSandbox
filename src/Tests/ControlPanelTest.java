@@ -33,7 +33,8 @@ public class ControlPanelTest {
         appPage.addMoneyAmount(moneyAmount);
         appPage.selectCategory();
         appPage.clickAddButton();
-        Assert.assertTrue(appPage.getAmount().equals(moneyAmount));
+        Assert.assertTrue(appPage.checkMoneyAmount().equals(moneyAmount));
+        appPage.deleteLastOperation();
     }
 
     @AfterClass
