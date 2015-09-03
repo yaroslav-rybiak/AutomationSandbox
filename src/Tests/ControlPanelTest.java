@@ -21,20 +21,34 @@ public class ControlPanelTest {
     @BeforeClass
     public static void setup() {
         driver.manage().window().maximize();
+
     }
 
     @Test
     public void adding_income_test() {
         String moneyAmount = Helper.getRandomCash();
-
         homePage.login(email, password);
         Assert.assertTrue(appPage.isOpened());
         appPage.switchToIncome();
         appPage.addMoneyAmount(moneyAmount);
-        appPage.selectCategory();
+        appPage.selectCategoryIncome();
         appPage.clickAddButton();
         Assert.assertTrue(appPage.checkMoneyAmount().equals(moneyAmount));
         appPage.deleteLastOperation();
+        appPage.clickLogoutButton();
+    }
+
+    @Test
+    public void adding_expense_test() {
+        String moneyAmount = Helper.getRandomCash();
+        homePage.login(email, password);
+        Assert.assertTrue(appPage.isOpened());
+        appPage.addMoneyAmount(moneyAmount);
+        appPage.selectCategoryExpense();
+        appPage.clickAddButton();
+        Assert.assertTrue(appPage.checkMoneyAmount().equals(moneyAmount));
+        appPage.deleteLastOperation();
+        appPage.clickLogoutButton();
     }
 
     @AfterClass
