@@ -12,7 +12,7 @@ public class Page {
     }
 
     public boolean isOpened() {
-        return driver.getCurrentUrl().equals(URL);
+        return driver.getCurrentUrl().contains(URL);
     }
 
     public Page (WebDriver driver) {
